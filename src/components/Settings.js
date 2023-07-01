@@ -10,6 +10,7 @@ import {
   InputAdornment,
   InputLabel,
   Paper,
+  Select,
   TextField,
   Typography,
 } from "@material-ui/core";
@@ -26,7 +27,8 @@ function Settings() {
   const [updatedPIN, setUpdatedPIN] = useState("");
   const [updatedTelephone, setUpdatedTelephone] = useState("");
   const [updatedEmail, setUpdatedEmail] = useState("");
-  const [updatedAllowChairpersonView, setUpdatedAllowChairpersonView] = useState("Yes");
+  const [updatedAllowChairpersonView, setUpdatedAllowChairpersonView] =
+    useState("Yes");
   const [showChangePassword, setShowChangePassword] = useState(false);
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -104,201 +106,225 @@ function Settings() {
   };
 
   // Set initial values for non-editable fields
-  if (!isEditing && name === "") {
+  useState(() => {
     setName(generateRandomString());
-  }
-
-  if (!isEditing && telephone === "") {
     setTelephone(generateRandomNumber());
-  }
+  }, []);
 
   return (
-    <Box p={2}>
-      <Paper elevation={2}>
-        <Box p={2}>
-          <Typography variant="h5" gutterBottom>
-            Account Settings
-          </Typography>
+    <Box display="flex" justifyContent="center" mt={4}>
+      <Paper elevation={3} style={{ padding: "2rem" }}>
+        <Typography
+          variant="h5"
+          align="center"
+          style={{ marginBottom: "2rem" }}
+        >
+          {showChangePassword ? "Change Password" : "Settings"}
+        </Typography>
+        {!showChangePassword ? (
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <TextField
-                label="Name"
-                value={isEditing ? updatedName : name}
-                onChange={(e) => setUpdatedName(e.target.value)}
-                fullWidth
-                disabled={!isEditing}
-              />
+              <Typography variant="subtitle1">Web Account:</Typography>
+              <Typography variant="body1">{name}</Typography>
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                label="PIN"
-                value={isEditing ? updatedPIN : pin}
-                onChange={(e) => setUpdatedPIN(e.target.value)}
-                fullWidth
-                disabled={!isEditing}
-              />
+              <Typography variant="subtitle1">Phone Account:</Typography>
+              <Typography variant="body1">{telephone}</Typography>
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                label="Telephone"
-                value={isEditing ? updatedTelephone : telephone}
-                onChange={(e) => setUpdatedTelephone(e.target.value)}
-                fullWidth
-                disabled={!isEditing}
-              />
+              <Typography variant="subtitle1">Name:</Typography>
+              {isEditing ? (
+                <TextField
+                  fullWidth
+                  variant="outlined"
+                  value={updatedName}
+                  onChange={(e) => setUpdatedName(e.target.value)}
+                />
+              ) : (
+                <Typography variant="body1">{name}</Typography>
+              )}
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                label="Email"
-                value={isEditing ? updatedEmail : email}
-                onChange={(e) => setUpdatedEmail(e.target.value)}
-                fullWidth
-                disabled={!isEditing}
-              />
+              <Typography variant="subtitle1">PIN:</Typography>
+              {isEditing ? (
+                <TextField
+                  fullWidth
+                  variant="outlined"
+                  value={updatedPIN}
+                  onChange={(e) => setUpdatedPIN(e.target.value)}
+                />
+              ) : (
+                <Typography variant="body1">{pin}</Typography>
+              )}
             </Grid>
             <Grid item xs={12}>
-              <FormControl component="fieldset">
-                <InputLabel>Allow Chairperson View</InputLabel>
-                <Box mt={1} display="flex" flexDirection="row" flexWrap="wrap">
-                  <FormControlLabel
-                    value="Yes"
-                    control={
-                      <RadioBubble
-                        checked={isEditing ? updatedAllowChairpersonView === "Yes" : allowChairpersonView === "Yes"}
-                        onChange={(e) => setUpdatedAllowChairpersonView(e.target.value)}
-                        disabled={!isEditing}
-                        label="Yes"
-                      />
+              <Typography variant="subtitle1">Telephone:</Typography>
+              {isEditing ? (
+                <TextField
+                  fullWidth
+                  variant="outlined"
+                  value={updatedTelephone}
+                  onChange={(e) => setUpdatedTelephone(e.target.value)}
+                />
+              ) : (
+                <Typography variant="body1">{telephone}</Typography>
+              )}
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="subtitle1">Email:</Typography>
+              {isEditing ? (
+                <TextField
+                  fullWidth
+                  variant="outlined"
+                  value={updatedEmail}
+                  onChange={(e) => setUpdatedEmail(e.target.value)}
+                />
+              ) : (
+                <Typography variant="body1">{email}</Typography>
+              )}
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="subtitle1">
+                Allow conference chairperson to view personal contacts:
+              </Typography>
+              {isEditing ? (
+                <FormControl fullWidth variant="outlined">
+                  <Select
+                    value={updatedAllowChairpersonView}
+                    onChange={(e) =>
+                      setUpdatedAllowChairpersonView(e.target.value)
                     }
-                    label="Yes"
-                  />
-                  <FormControlLabel
-                    value="No"
-                    control={
-                      <RadioBubble
-                        checked={isEditing ? updatedAllowChairpersonView === "No" : allowChairpersonView === "No"}
-                        onChange={(e) => setUpdatedAllowChairpersonView(e.target.value)}
-                        disabled={!isEditing}
-                        label="No"
-                      />
-                    }
-                    label="No"
-                  />
-                </Box>
-              </FormControl>
+                  >
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </Select>
+                </FormControl>
+              ) : (
+                <Typography variant="body1">{allowChairpersonView}</Typography>
+              )}
             </Grid>
-            {!isEditing && (
-              <Grid item xs={12}>
-                <Button variant="contained" color="primary" onClick={toggleEditing}>
-                  Edit
-                </Button>
-                <Button variant="contained" color="primary" onClick={handleChangePassword}>
-                  Change Password
-                </Button>
-              </Grid>
-            )}
-            {isEditing && (
-              <Grid item xs={12}>
-                <Button variant="contained" color="primary" onClick={handleSave}>
+            <Grid item xs={12} container justifyContent="center">
+              {isEditing ? (
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleSave}
+                >
                   Save
                 </Button>
-                <Button variant="contained" onClick={toggleEditing}>
-                  Cancel
+              ) : (
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={toggleEditing}
+                >
+                  Edit Details
                 </Button>
-              </Grid>
-            )}
+              )}
+            </Grid>
+            <Grid item xs={12} container justifyContent="center">
+              <Button
+                variant="outlined"
+                color="primary"
+                onClick={handleChangePassword}
+              >
+                Change Password
+              </Button>
+            </Grid>
           </Grid>
-        </Box>
-      </Paper>
-      {showChangePassword && (
-        <Paper elevation={2} style={{ marginTop: "16px" }}>
-          <Box p={2}>
-            <Typography variant="h5" gutterBottom>
+        ) : (
+          <Paper
+            elevation={0}
+            style={{ marginTop: "2rem", padding: "2rem", maxWidth: "400px" }}
+          >
+            <Typography
+              variant="h5"
+              align="center"
+              style={{ marginBottom: "2rem" }}
+            >
               Change Password
             </Typography>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <FormControl fullWidth>
-                  <InputLabel>Current Password</InputLabel>
-                  <Input
-                    type={showCurrentPassword ? "text" : "password"}
-                    value={currentPassword}
-                    onChange={handleCurrentPasswordChange}
-                    endAdornment={
-                      <InputAdornment position="end">
-                        <Button onClick={toggleShowCurrentPassword}>
-                          {showCurrentPassword ? <VisibilityOff /> : <Visibility />}
-                        </Button>
-                      </InputAdornment>
-                    }
-                  />
-                </FormControl>
-              </Grid>
-              <Grid item xs={12}>
-                <FormControl fullWidth>
-                  <InputLabel>New Password</InputLabel>
-                  <Input
-                    type={showNewPassword ? "text" : "password"}
-                    value={newPassword}
-                    onChange={handleNewPasswordChange}
-                    endAdornment={
-                      <InputAdornment position="end">
-                        <Button onClick={toggleShowNewPassword}>
-                          {showNewPassword ? <VisibilityOff /> : <Visibility />}
-                        </Button>
-                      </InputAdornment>
-                    }
-                  />
-                </FormControl>
-              </Grid>
-              <Grid item xs={12}>
-                <FormControl fullWidth>
-                  <InputLabel>Confirm Password</InputLabel>
-                  <Input
-                    type={showConfirmPassword ? "text" : "password"}
-                    value={confirmPassword}
-                    onChange={handleConfirmPasswordChange}
-                    endAdornment={
-                      <InputAdornment position="end">
-                        <Button onClick={toggleShowConfirmPassword}>
-                          {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
-                        </Button>
-                      </InputAdornment>
-                    }
-                  />
-                </FormControl>
-                {passwordMatchError && (
-                  <Typography variant="body2" color="error" style={{ marginTop: "8px" }}>
-                    Passwords do not match.
-                  </Typography>
-                )}
-              </Grid>
-              <Grid item xs={12}>
-                <Button variant="contained" color="primary" onClick={handlePasswordSave}>
-                  Save Password
-                </Button>
-                <Button variant="contained" onClick={() => setShowChangePassword(false)}>
-                  Cancel
-                </Button>
-              </Grid>
-            </Grid>
-          </Box>
-        </Paper>
-      )}
+            <FormControl
+              fullWidth
+              variant="outlined"
+              style={{ marginBottom: "1rem" }}
+            >
+              <InputLabel htmlFor="current-password">
+                Enter Current Password
+              </InputLabel>
+              <Input
+                id="current-password"
+                type={showCurrentPassword ? "text" : "password"}
+                value={currentPassword}
+                onChange={handleCurrentPasswordChange}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <Button onClick={toggleShowCurrentPassword}>
+                      {showCurrentPassword ? <VisibilityOff /> : <Visibility />}
+                    </Button>
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
+            <FormControl
+              fullWidth
+              variant="outlined"
+              style={{ marginBottom: "1rem" }}
+            >
+              <InputLabel htmlFor="new-password">Enter New Password</InputLabel>
+              <Input
+                id="new-password"
+                type={showNewPassword ? "text" : "password"}
+                value={newPassword}
+                onChange={handleNewPasswordChange}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <Button onClick={toggleShowNewPassword}>
+                      {showNewPassword ? <VisibilityOff /> : <Visibility />}
+                    </Button>
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
+            <FormControl
+              fullWidth
+              variant="outlined"
+              style={{ marginBottom: "1rem" }}
+            >
+              <InputLabel htmlFor="confirm-password">
+                Confirm New Password
+              </InputLabel>
+              <Input
+                id="confirm-password"
+                type={showConfirmPassword ? "text" : "password"}
+                value={confirmPassword}
+                onChange={handleConfirmPasswordChange}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <Button onClick={toggleShowConfirmPassword}>
+                      {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                    </Button>
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
+            {passwordMatchError && (
+              <Typography variant="body2" color="error">
+                The passwords do not match
+              </Typography>
+            )}
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handlePasswordSave}
+              style={{ marginTop: "1rem" }}
+            >
+              Save Changes
+            </Button>
+          </Paper>
+        )}
+      </Paper>
     </Box>
-  );
-}
-
-function RadioBubble({ checked, onChange, disabled, label }) {
-  return (
-    <Button
-      variant={checked ? "contained" : "outlined"}
-      color={checked ? "primary" : "default"}
-      onClick={onChange}
-      disabled={disabled}
-    >
-      {label}
-    </Button>
   );
 }
 
