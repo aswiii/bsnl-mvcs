@@ -10,11 +10,13 @@ import {
   Input,
   InputAdornment,
   InputLabel,
+  Paper,
   Select,
   TextField,
   Typography,
 } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
+<<<<<<< HEAD
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -45,6 +47,8 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Poppins, sans-serif",
   },
 }));
+=======
+>>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
 
 function Settings() {
   const classes = useStyles();
@@ -133,14 +137,25 @@ function Settings() {
   // Set initial values for non-editable fields
 
   return (
+<<<<<<< HEAD
     <Container maxWidth="sm" className={classes.root}>
       <Box>
         <Typography variant="h5" align="center" className={classes.title}>
+=======
+    <Box display="flex" justifyContent="center" mt={4}>
+      <Paper elevation={3} style={{ padding: "2rem" }}>
+        <Typography
+          variant="h5"
+          align="center"
+          style={{ marginBottom: "2rem" }}
+        >
+>>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
           {showChangePassword ? "Change Password" : "Settings"}
         </Typography>
         {!showChangePassword ? (
           <Grid container spacing={2}>
             <Grid item xs={12}>
+<<<<<<< HEAD
               <Typography variant="subtitle1" className={classes.subtitle}>
                 Web Account:
               </Typography>
@@ -158,68 +173,107 @@ function Settings() {
               <Typography variant="subtitle1" className={classes.subtitle}>
                 Name:
               </Typography>
+=======
+              <Typography variant="subtitle1">Web Account:</Typography>
+              <Typography variant="body1">{name}</Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="subtitle1">Phone Account:</Typography>
+              <Typography variant="body1">{telephone}</Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="subtitle1">Name:</Typography>
+>>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
               {isEditing ? (
                 <TextField
                   fullWidth
                   variant="outlined"
                   value={updatedName}
                   onChange={(e) => setUpdatedName(e.target.value)}
+<<<<<<< HEAD
                   className={classes.inputField}
+=======
+>>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
                 />
               ) : (
                 <Typography variant="body1">{name}</Typography>
               )}
             </Grid>
             <Grid item xs={12}>
+<<<<<<< HEAD
               <Typography variant="subtitle1" className={classes.subtitle}>
                 PIN:
               </Typography>
+=======
+              <Typography variant="subtitle1">PIN:</Typography>
+>>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
               {isEditing ? (
                 <TextField
                   fullWidth
                   variant="outlined"
                   value={updatedPIN}
                   onChange={(e) => setUpdatedPIN(e.target.value)}
+<<<<<<< HEAD
                   className={classes.inputField}
+=======
+>>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
                 />
               ) : (
                 <Typography variant="body1">{pin}</Typography>
               )}
             </Grid>
             <Grid item xs={12}>
+<<<<<<< HEAD
               <Typography variant="subtitle1" className={classes.subtitle}>
                 Telephone:
               </Typography>
+=======
+              <Typography variant="subtitle1">Telephone:</Typography>
+>>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
               {isEditing ? (
                 <TextField
                   fullWidth
                   variant="outlined"
                   value={updatedTelephone}
                   onChange={(e) => setUpdatedTelephone(e.target.value)}
+<<<<<<< HEAD
                   className={classes.inputField}
+=======
+>>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
                 />
               ) : (
                 <Typography variant="body1">{telephone}</Typography>
               )}
             </Grid>
             <Grid item xs={12}>
+<<<<<<< HEAD
               <Typography variant="subtitle1" className={classes.subtitle}>
                 Email:
               </Typography>
+=======
+              <Typography variant="subtitle1">Email:</Typography>
+>>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
               {isEditing ? (
                 <TextField
                   fullWidth
                   variant="outlined"
                   value={updatedEmail}
                   onChange={(e) => setUpdatedEmail(e.target.value)}
+<<<<<<< HEAD
                   className={classes.inputField}
+=======
+>>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
                 />
               ) : (
                 <Typography variant="body1">{email}</Typography>
               )}
             </Grid>
             <Grid item xs={12}>
+<<<<<<< HEAD
               <Typography variant="subtitle1" className={classes.subtitle}>
+=======
+              <Typography variant="subtitle1">
+>>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
                 Allow conference chairperson to view personal contacts:
               </Typography>
               {isEditing ? (
@@ -229,7 +283,10 @@ function Settings() {
                     onChange={(e) =>
                       setUpdatedAllowChairpersonView(e.target.value)
                     }
+<<<<<<< HEAD
                     className={classes.inputField}
+=======
+>>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
                   >
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
@@ -245,7 +302,10 @@ function Settings() {
                   variant="contained"
                   color="primary"
                   onClick={handleSave}
+<<<<<<< HEAD
                   className={classes.saveButton}
+=======
+>>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
                 >
                   Save
                 </Button>
@@ -254,7 +314,10 @@ function Settings() {
                   variant="contained"
                   color="primary"
                   onClick={toggleEditing}
+<<<<<<< HEAD
                   className={classes.saveButton}
+=======
+>>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
                 >
                   Edit Details
                 </Button>
@@ -265,14 +328,31 @@ function Settings() {
                 variant="outlined"
                 color="primary"
                 onClick={handleChangePassword}
+<<<<<<< HEAD
                 className={classes.saveButton}
+=======
+>>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
               >
                 Change Password
               </Button>
             </Grid>
           </Grid>
         ) : (
+<<<<<<< HEAD
           <Container>
+=======
+          <Paper
+            elevation={0}
+            style={{ marginTop: "2rem", padding: "2rem", maxWidth: "400px" }}
+          >
+            <Typography
+              variant="h5"
+              align="center"
+              style={{ marginBottom: "2rem" }}
+            >
+              Change Password
+            </Typography>
+>>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
             <FormControl
               fullWidth
               variant="outlined"
@@ -338,7 +418,11 @@ function Settings() {
               />
             </FormControl>
             {passwordMatchError && (
+<<<<<<< HEAD
               <Typography variant="body2" className={classes.passwordError}>
+=======
+              <Typography variant="body2" color="error">
+>>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
                 The passwords do not match
               </Typography>
             )}
@@ -347,6 +431,7 @@ function Settings() {
               color="primary"
               onClick={handlePasswordSave}
               style={{ marginTop: "1rem" }}
+<<<<<<< HEAD
               className={classes.saveButton}
             >
               Save Changes
@@ -355,6 +440,15 @@ function Settings() {
         )}
       </Box>
     </Container>
+=======
+            >
+              Save Changes
+            </Button>
+          </Paper>
+        )}
+      </Paper>
+    </Box>
+>>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
   );
 }
 
