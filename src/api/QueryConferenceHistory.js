@@ -32,13 +32,12 @@ function convertUTCMillisecondsToDate(utcMilliseconds) {
 //   return { hours: hours, minutes: minutes };
 // }
 
-function queryConferencehistory(token,JW) {
+function queryConferencehistory(token) {
   //attendee is a json file
   return fetch(url, {
     method: "POST", // Adjust the HTTP method (GET, POST, PUT, etc.) as required by your API
     headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${JW}` 
+      "Content-Type": "application/json", 
     },
     body: JSON.stringify({
       token: `${token}`,
@@ -65,15 +64,15 @@ function queryConferencehistory(token,JW) {
         },
         isAscend: "False",
         pageIndex: 0,
-        pageSize: 50,
+        pageSize: 10,
       },
       isIncludeInvitedConference: "True",
     }),
   })
     .then((response) => response.json()) // Parse the response as JSON
-    .then((data) => {console.log(data)});
+    .then((data) => data);
 }
 
 module.exports = queryConferencehistory;
 
-queryConferencehistory("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySUQiO…DY4fQ.BkEmt5rTWP_wg6WrWTEt6YnU7cjrLbS8S6cNzRFSmuM","MTA1Mjk3MTUxMTQ3MzU4NDExMTQwMDAtMDAxMg==");
+// queryConferencehistory("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySUQiOiJUZXN0X0JzbmwiLCJleHBpcnkiOjE2ODg5MjU1NzUuMDcyOTd9.yEQukPHG2HRf8R1JxaOmM1n7J9sUWWMu6xNDwnj5UCM");
