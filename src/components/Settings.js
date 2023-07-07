@@ -16,7 +16,6 @@ import {
   Typography,
 } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
-<<<<<<< HEAD
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -47,8 +46,6 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Poppins, sans-serif",
   },
 }));
-=======
->>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
 
 function Settings() {
   const classes = useStyles();
@@ -134,321 +131,241 @@ function Settings() {
     console.log("Settings saved successfully!");
   };
 
-  // Set initial values for non-editable fields
-
   return (
-<<<<<<< HEAD
     <Container maxWidth="sm" className={classes.root}>
-      <Box>
-        <Typography variant="h5" align="center" className={classes.title}>
-=======
-    <Box display="flex" justifyContent="center" mt={4}>
-      <Paper elevation={3} style={{ padding: "2rem" }}>
-        <Typography
-          variant="h5"
-          align="center"
-          style={{ marginBottom: "2rem" }}
-        >
->>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
-          {showChangePassword ? "Change Password" : "Settings"}
-        </Typography>
-        {!showChangePassword ? (
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-<<<<<<< HEAD
-              <Typography variant="subtitle1" className={classes.subtitle}>
-                Web Account:
-              </Typography>
-              <Typography variant="body1">
-                {localStorage.getItem("userID")}
-              </Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="subtitle1" className={classes.subtitle}>
-                Phone Account:
-              </Typography>
-              <Typography variant="body1">{telephone}</Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="subtitle1" className={classes.subtitle}>
-                Name:
-              </Typography>
-=======
-              <Typography variant="subtitle1">Web Account:</Typography>
-              <Typography variant="body1">{name}</Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="subtitle1">Phone Account:</Typography>
-              <Typography variant="body1">{telephone}</Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="subtitle1">Name:</Typography>
->>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
-              {isEditing ? (
-                <TextField
-                  fullWidth
-                  variant="outlined"
-                  value={updatedName}
-                  onChange={(e) => setUpdatedName(e.target.value)}
-<<<<<<< HEAD
-                  className={classes.inputField}
-=======
->>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
-                />
-              ) : (
-                <Typography variant="body1">{name}</Typography>
-              )}
-            </Grid>
-            <Grid item xs={12}>
-<<<<<<< HEAD
-              <Typography variant="subtitle1" className={classes.subtitle}>
-                PIN:
-              </Typography>
-=======
-              <Typography variant="subtitle1">PIN:</Typography>
->>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
-              {isEditing ? (
-                <TextField
-                  fullWidth
-                  variant="outlined"
-                  value={updatedPIN}
-                  onChange={(e) => setUpdatedPIN(e.target.value)}
-<<<<<<< HEAD
-                  className={classes.inputField}
-=======
->>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
-                />
-              ) : (
-                <Typography variant="body1">{pin}</Typography>
-              )}
-            </Grid>
-            <Grid item xs={12}>
-<<<<<<< HEAD
-              <Typography variant="subtitle1" className={classes.subtitle}>
-                Telephone:
-              </Typography>
-=======
-              <Typography variant="subtitle1">Telephone:</Typography>
->>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
-              {isEditing ? (
-                <TextField
-                  fullWidth
-                  variant="outlined"
-                  value={updatedTelephone}
-                  onChange={(e) => setUpdatedTelephone(e.target.value)}
-<<<<<<< HEAD
-                  className={classes.inputField}
-=======
->>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
-                />
-              ) : (
+      <Box display="flex" justifyContent="center" mt={4}>
+        <Paper elevation={3} style={{ padding: "2rem" }}>
+          <Typography variant="h5" align="center" style={{ marginBottom: "2rem" }}>
+            {showChangePassword ? "Change Password" : "Settings"}
+          </Typography>
+          {!showChangePassword ? (
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <Typography variant="subtitle1" className={classes.subtitle}>
+                  Web Account:
+                </Typography>
+                <Typography variant="body1">
+                  {localStorage.getItem("userID")}
+                </Typography>
+              </Grid>
+              <Grid item xs={12}>
+                <Typography variant="subtitle1" className={classes.subtitle}>
+                  Phone Account:
+                </Typography>
                 <Typography variant="body1">{telephone}</Typography>
-              )}
+              </Grid>
+              <Grid item xs={12}>
+                <Typography variant="subtitle1" className={classes.subtitle}>
+                  Name:
+                </Typography>
+                {isEditing ? (
+                  <TextField
+                    fullWidth
+                    variant="outlined"
+                    value={updatedName}
+                    onChange={(e) => setUpdatedName(e.target.value)}
+                    className={classes.inputField}
+                  />
+                ) : (
+                  <Typography variant="body1">{name}</Typography>
+                )}
+              </Grid>
+              <Grid item xs={12}>
+                <Typography variant="subtitle1" className={classes.subtitle}>
+                  PIN:
+                </Typography>
+                {isEditing ? (
+                  <TextField
+                    fullWidth
+                    variant="outlined"
+                    value={updatedPIN}
+                    onChange={(e) => setUpdatedPIN(e.target.value)}
+                    className={classes.inputField}
+                  />
+                ) : (
+                  <Typography variant="body1">{pin}</Typography>
+                )}
+              </Grid>
+              <Grid item xs={12}>
+                <Typography variant="subtitle1" className={classes.subtitle}>
+                  Telephone:
+                </Typography>
+                {isEditing ? (
+                  <TextField
+                    fullWidth
+                    variant="outlined"
+                    value={updatedTelephone}
+                    onChange={(e) => setUpdatedTelephone(e.target.value)}
+                    className={classes.inputField}
+                  />
+                ) : (
+                  <Typography variant="body1">{telephone}</Typography>
+                )}
+              </Grid>
+              <Grid item xs={12}>
+                <Typography variant="subtitle1" className={classes.subtitle}>
+                  Email:
+                </Typography>
+                {isEditing ? (
+                  <TextField
+                    fullWidth
+                    variant="outlined"
+                    value={updatedEmail}
+                    onChange={(e) => setUpdatedEmail(e.target.value)}
+                    className={classes.inputField}
+                  />
+                ) : (
+                  <Typography variant="body1">{email}</Typography>
+                )}
+              </Grid>
+              <Grid item xs={12}>
+                <Typography variant="subtitle1" className={classes.subtitle}>
+                  Allow conference chairperson to view personal contacts:
+                </Typography>
+                {isEditing ? (
+                  <FormControl fullWidth variant="outlined">
+                    <Select
+                      value={updatedAllowChairpersonView}
+                      onChange={(e) => setUpdatedAllowChairpersonView(e.target.value)}
+                      className={classes.inputField}
+                    >
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                    </Select>
+                  </FormControl>
+                ) : (
+                  <Typography variant="body1">{allowChairpersonView}</Typography>
+                )}
+              </Grid>
+              <Grid item xs={12} container justifyContent="center">
+                {isEditing ? (
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={handleSave}
+                    className={classes.saveButton}
+                  >
+                    Save
+                  </Button>
+                ) : (
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={toggleEditing}
+                    className={classes.saveButton}
+                  >
+                    Edit Details
+                  </Button>
+                )}
+              </Grid>
+              <Grid item xs={12} container justifyContent="center">
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  onClick={handleChangePassword}
+                  className={classes.saveButton}
+                >
+                  Change Password
+                </Button>
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-<<<<<<< HEAD
-              <Typography variant="subtitle1" className={classes.subtitle}>
-                Email:
-              </Typography>
-=======
-              <Typography variant="subtitle1">Email:</Typography>
->>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
-              {isEditing ? (
-                <TextField
+          ) : (
+            <Container>
+              <Paper
+                elevation={0}
+                style={{ marginTop: "2rem", padding: "2rem", maxWidth: "400px" }}
+              >
+                <Typography
+                  variant="h5"
+                  align="center"
+                  style={{ marginBottom: "2rem" }}
+                >
+                  Change Password
+                </Typography>
+                <FormControl
                   fullWidth
                   variant="outlined"
-                  value={updatedEmail}
-                  onChange={(e) => setUpdatedEmail(e.target.value)}
-<<<<<<< HEAD
-                  className={classes.inputField}
-=======
->>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
-                />
-              ) : (
-                <Typography variant="body1">{email}</Typography>
-              )}
-            </Grid>
-            <Grid item xs={12}>
-<<<<<<< HEAD
-              <Typography variant="subtitle1" className={classes.subtitle}>
-=======
-              <Typography variant="subtitle1">
->>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
-                Allow conference chairperson to view personal contacts:
-              </Typography>
-              {isEditing ? (
-                <FormControl fullWidth variant="outlined">
-                  <Select
-                    value={updatedAllowChairpersonView}
-                    onChange={(e) =>
-                      setUpdatedAllowChairpersonView(e.target.value)
+                  style={{ marginBottom: "1rem" }}
+                >
+                  <InputLabel htmlFor="current-password">
+                    Enter Current Password
+                  </InputLabel>
+                  <Input
+                    id="current-password"
+                    type={showCurrentPassword ? "text" : "password"}
+                    value={currentPassword}
+                    onChange={handleCurrentPasswordChange}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <Button onClick={toggleShowCurrentPassword}>
+                          {showCurrentPassword ? <VisibilityOff /> : <Visibility />}
+                        </Button>
+                      </InputAdornment>
                     }
-<<<<<<< HEAD
-                    className={classes.inputField}
-=======
->>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
-                  >
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                  </Select>
+                  />
                 </FormControl>
-              ) : (
-                <Typography variant="body1">{allowChairpersonView}</Typography>
-              )}
-            </Grid>
-            <Grid item xs={12} container justifyContent="center">
-              {isEditing ? (
+                <FormControl
+                  fullWidth
+                  variant="outlined"
+                  style={{ marginBottom: "1rem" }}
+                >
+                  <InputLabel htmlFor="new-password">Enter New Password</InputLabel>
+                  <Input
+                    id="new-password"
+                    type={showNewPassword ? "text" : "password"}
+                    value={newPassword}
+                    onChange={handleNewPasswordChange}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <Button onClick={toggleShowNewPassword}>
+                          {showNewPassword ? <VisibilityOff /> : <Visibility />}
+                        </Button>
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl>
+                <FormControl
+                  fullWidth
+                  variant="outlined"
+                  style={{ marginBottom: "1rem" }}
+                >
+                  <InputLabel htmlFor="confirm-password">
+                    Confirm New Password
+                  </InputLabel>
+                  <Input
+                    id="confirm-password"
+                    type={showConfirmPassword ? "text" : "password"}
+                    value={confirmPassword}
+                    onChange={handleConfirmPasswordChange}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <Button onClick={toggleShowConfirmPassword}>
+                          {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                        </Button>
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl>
+                {passwordMatchError && (
+                  <Typography variant="body2" className={classes.passwordError}>
+                    The passwords do not match
+                  </Typography>
+                )}
                 <Button
                   variant="contained"
                   color="primary"
-                  onClick={handleSave}
-<<<<<<< HEAD
+                  onClick={handlePasswordSave}
+                  style={{ marginTop: "1rem" }}
                   className={classes.saveButton}
-=======
->>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
                 >
-                  Save
+                  Save Changes
                 </Button>
-              ) : (
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={toggleEditing}
-<<<<<<< HEAD
-                  className={classes.saveButton}
-=======
->>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
-                >
-                  Edit Details
-                </Button>
-              )}
-            </Grid>
-            <Grid item xs={12} container justifyContent="center">
-              <Button
-                variant="outlined"
-                color="primary"
-                onClick={handleChangePassword}
-<<<<<<< HEAD
-                className={classes.saveButton}
-=======
->>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
-              >
-                Change Password
-              </Button>
-            </Grid>
-          </Grid>
-        ) : (
-<<<<<<< HEAD
-          <Container>
-=======
-          <Paper
-            elevation={0}
-            style={{ marginTop: "2rem", padding: "2rem", maxWidth: "400px" }}
-          >
-            <Typography
-              variant="h5"
-              align="center"
-              style={{ marginBottom: "2rem" }}
-            >
-              Change Password
-            </Typography>
->>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
-            <FormControl
-              fullWidth
-              variant="outlined"
-              style={{ marginBottom: "1rem" }}
-            >
-              <InputLabel htmlFor="current-password">
-                Enter Current Password
-              </InputLabel>
-              <Input
-                id="current-password"
-                type={showCurrentPassword ? "text" : "password"}
-                value={currentPassword}
-                onChange={handleCurrentPasswordChange}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <Button onClick={toggleShowCurrentPassword}>
-                      {showCurrentPassword ? <VisibilityOff /> : <Visibility />}
-                    </Button>
-                  </InputAdornment>
-                }
-              />
-            </FormControl>
-            <FormControl
-              fullWidth
-              variant="outlined"
-              style={{ marginBottom: "1rem" }}
-            >
-              <InputLabel htmlFor="new-password">Enter New Password</InputLabel>
-              <Input
-                id="new-password"
-                type={showNewPassword ? "text" : "password"}
-                value={newPassword}
-                onChange={handleNewPasswordChange}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <Button onClick={toggleShowNewPassword}>
-                      {showNewPassword ? <VisibilityOff /> : <Visibility />}
-                    </Button>
-                  </InputAdornment>
-                }
-              />
-            </FormControl>
-            <FormControl
-              fullWidth
-              variant="outlined"
-              style={{ marginBottom: "1rem" }}
-            >
-              <InputLabel htmlFor="confirm-password">
-                Confirm New Password
-              </InputLabel>
-              <Input
-                id="confirm-password"
-                type={showConfirmPassword ? "text" : "password"}
-                value={confirmPassword}
-                onChange={handleConfirmPasswordChange}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <Button onClick={toggleShowConfirmPassword}>
-                      {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
-                    </Button>
-                  </InputAdornment>
-                }
-              />
-            </FormControl>
-            {passwordMatchError && (
-<<<<<<< HEAD
-              <Typography variant="body2" className={classes.passwordError}>
-=======
-              <Typography variant="body2" color="error">
->>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
-                The passwords do not match
-              </Typography>
-            )}
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handlePasswordSave}
-              style={{ marginTop: "1rem" }}
-<<<<<<< HEAD
-              className={classes.saveButton}
-            >
-              Save Changes
-            </Button>
-          </Container>
-        )}
+              </Paper>
+            </Container>
+          )}
+        </Paper>
       </Box>
     </Container>
-=======
-            >
-              Save Changes
-            </Button>
-          </Paper>
-        )}
-      </Paper>
-    </Box>
->>>>>>> 6ff27d916e06a795e774aa7f5ff82eb9bf31edd8
   );
 }
 
